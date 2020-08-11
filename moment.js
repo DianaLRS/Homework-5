@@ -30,4 +30,4 @@ var moment = moment().format();
    color the schedule red*/
 
 
-//use military time to distinguuish between AM and PM so the loop runs properly.
+//use military time to distinguuish between AM and PM so the loop runs properly.+

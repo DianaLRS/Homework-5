@@ -2,7 +2,7 @@
 
 var currentDayEl = $("#currentDay");
 var date = moment().format('MMMM Do YYYY, h:mm:ss a')
-console.log(date)
+//console.log(date)
 currentDayEl.append(date)
 
 
@@ -51,7 +51,7 @@ for (var i = 0; i < 9; i++) {
     //adding id/values/types attributes
 
     $(textarea).attr("data-number", hourIdElement[i]);
-    console.log(hourIdElement[i]);
+    //console.log(hourIdElement[i]);
     $(saveButton).attr("type", "submit");
     $(saveButton).attr("value", "Submit");
     
@@ -70,7 +70,30 @@ for (var i = 0; i < 9; i++) {
     newRow.append(textarea);
     newRow.append(saveButton);
 
+   setHourResponse();
+
+
 }
+
+// accessing CSS properties
+
+function setHourResponse(){
+
+    if (currentHour < hourIdElement[i]){
+        console.log(currentHour)
+        $(textarea).addClass("future")
+    }if (currentHour == hourIdElement[i]){
+         $(textarea).addClass("present")
+        console.log(currentHour)
+    }if (currentHour > hourIdElement[i]){
+        $(textarea).addClass("past")
+    }
+};
+
+
+
+
+
 
 
 

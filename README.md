@@ -17,18 +17,17 @@ The date on planner adjusts to current date. +
 Planner adjusts to current time. +
 
 The user can write inside the block. +
+When the time = present, the row = red+
+
+when text = past, the text = grey +
+
+when text = present, the text = green +
 
 The user can save the text by clicking the responsive save button 
 
 The text will remain on screen even if page is refreshed. 
 
 When user deleted text and/or replaces it with new text, old text is deleted. 
-
-When the time = present, the row = red
-
-when text = past, the text = grey 
-
-when text = present, the text = green
 
 
 

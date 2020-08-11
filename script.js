@@ -29,8 +29,7 @@ for (var i = 0; i < 9; i++) {
     //making our elements
     var newRow = $("<div>"); // row
     var smallCol = $("<div>"); //. column 1
-    //var saveButton = $("<button>"); // column 2
-    var saveButton = $("<input>"); // 
+    var saveButton = $("<button>"); // column 2 
     var textarea =$("<textarea>"); // column 3
 
 
@@ -42,7 +41,7 @@ for (var i = 0; i < 9; i++) {
     $(saveButton).addClass("col-sm-2")
     $(saveButton).addClass("saveBtn");
     $(saveButton).addClass("i: hover")
-    $(textarea).addClass("textarea");
+    $(textarea).addClass("text");
     $(textarea).addClass("user-input")
     $(textarea).addClass("col-sm-8");
     // $(textarea).addClass("past");
@@ -53,7 +52,7 @@ for (var i = 0; i < 9; i++) {
     $(textarea).attr("data-number", hourIdElement[i]);
     //console.log(hourIdElement[i]);
     $(saveButton).attr("type", "submit");
-    $(saveButton).attr("value", "Submit");
+   
     
 
 
@@ -69,6 +68,7 @@ for (var i = 0; i < 9; i++) {
     newRow.append(smallCol);
     newRow.append(textarea);
     newRow.append(saveButton);
+   
 
    setHourResponse();
 
@@ -77,25 +77,47 @@ for (var i = 0; i < 9; i++) {
 
 // accessing CSS properties
 
-function setHourResponse(){
+function setHourResponse(){  // this works now
 
     if (currentHour < hourIdElement[i]){
-        console.log(currentHour)
+        //console.log(currentHour)
         $(textarea).addClass("future")
     }if (currentHour == hourIdElement[i]){
          $(textarea).addClass("present")
-        console.log(currentHour)
+        //console.log(currentHour)
     }if (currentHour > hourIdElement[i]){
         $(textarea).addClass("past")
     }
 };
 
+//set function to save userinput from textarea in local storage
+
+function renderUserInput (){
+ localStorage
+
+
+renderSaveButton();
+
+}
 
 
 
 
 
+function renderSaveButton(){
 
+$(".saveBtn").on("click", function(){
+event.preventDefault();
+    console.log("clickey")
+})
+
+}
+
+renderUserInput();
+
+
+
+//set event listener to click button
 
 
 

@@ -20,14 +20,12 @@ var moment = moment().format();
 
 
 //  prevent default to keep the user input value
-// use push function to push that value. Try it with the save button 
 
-// if else statements to run the code for CSS past and present. 
-//such as 
-/*if (scheduleHour < currentHour){
-    color the schedule green
-} if (schedule hour === currentHour)
-   color the schedule red*/
+// use push function to push that value to userInput[].
+// TO set local storage, use JSON stringify to make object into a string 
+// then use JSON parse to set stirng into obj
 
+//local storage needs two variables....a key and the value. 
+//Try it with the save button 
 
-//use military time to distinguuish between AM and PM so the loop runs properly.+
+/

@@ -14,23 +14,26 @@ var container = $(".container");
 // creating the variables
 
 var currentHour = moment().format('HH')
-console.log(currentHour)
 
 
-//creating array 
+//creating arrays 
 
 var workingHours = ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"];
 var hourIdElement = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+var buttonID = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 
 
 
-for (var i = 0; i < 9; i++) {
+
+
+
+for (var i = 0; i < hourIdElement.length; i++) {
     //making our elements
     var newRow = $("<div>"); // row
     var smallCol = $("<div>"); //. column 1
     var saveButton = $("<button>"); // column 2 
-    var textarea =$("<textarea>"); // column 3
+    var textarea = $("<textarea>"); // column 3
 
 
     //adding class by rows and collumns
@@ -52,15 +55,41 @@ for (var i = 0; i < 9; i++) {
     $(textarea).attr("data-number", hourIdElement[i]);
     //console.log(hourIdElement[i]);
     $(saveButton).attr("type", "submit");
-   
-    
+    $(saveButton).attr("data-index", buttonID[i])
+    $(textarea).attr("id", "textarea-" + buttonID[i])
+
+
 
 
 
     //adding text attributes and style:
     saveButton.text("save");
     smallCol.text(workingHours[i]);
+ 
 
+
+// step 1: get value from local storage based on buttonid[i]
+//step 2: if value exists, apply to value of text area
+// conditional 
+
+
+// ===================================
+
+
+function renderUserInput () {
+var getValue = localStorage.getItem(buttonID[i]);
+console.log(getValue)
+
+if(getValue){
+    console.log("works")
+    textarea.text(getValue)
+}
+
+
+}
+
+
+// -----------------------------------------
 
 
     //appending new elements
@@ -68,56 +97,56 @@ for (var i = 0; i < 9; i++) {
     newRow.append(smallCol);
     newRow.append(textarea);
     newRow.append(saveButton);
-   
 
-   setHourResponse();
+
+setHourResponse();
+renderSaveButton();
+renderUserInput();
 
 
 }
 
 // accessing CSS properties
 
-function setHourResponse(){  // this works now
+function setHourResponse() {  // this works now
 
-    if (currentHour < hourIdElement[i]){
+
+    if (currentHour < hourIdElement[i]) {
         //console.log(currentHour)
         $(textarea).addClass("future")
-    }if (currentHour == hourIdElement[i]){
-         $(textarea).addClass("present")
+    } if (currentHour == hourIdElement[i]) {
+        $(textarea).addClass("present")
         //console.log(currentHour)
-    }if (currentHour > hourIdElement[i]){
+    } if (currentHour > hourIdElement[i]) {
         $(textarea).addClass("past")
+
     }
+
+
 };
 
-//set function to save userinput from textarea in local storage
-
-function renderUserInput (){
- localStorage
-
-
-renderSaveButton();
-
-}
+//set the event listener to save input to local storage
+function renderSaveButton() {
 
 
 
+    $(saveButton).on("click", function () {
+        event.preventDefault();
+        var id = $(this).attr("data-index")
+        var textareaSelector = $("#textarea-" + id)
+        // console.log(textareaSelector)
+        var currentValue = textareaSelector.val()
+        console.log(currentValue)
+        localStorage.setItem(id, currentValue);
+        // console.log(localStorage)
+      
 
-
-function renderSaveButton(){
-
-$(".saveBtn").on("click", function(){
-event.preventDefault();
-    console.log("clickey")
-})
+    })
+  
 
 }
 
-renderUserInput();
 
-
-
-//set event listener to click button
 
 
 

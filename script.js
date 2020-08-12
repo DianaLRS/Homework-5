@@ -67,15 +67,7 @@ for (var i = 0; i < hourIdElement.length; i++) {
     smallCol.text(workingHours[i]);
  
 
-
-// step 1: get value from local storage based on buttonid[i]
-//step 2: if value exists, apply to value of text area
-// conditional 
-
-
-// ===================================
-
-
+// getting data from local storage and saving it in text area
 function renderUserInput () {
 var getValue = localStorage.getItem(buttonID[i]);
 console.log(getValue)
@@ -89,15 +81,13 @@ if(getValue){
 }
 
 
-// -----------------------------------------
-
-
     //appending new elements
     container.append(newRow);
     newRow.append(smallCol);
     newRow.append(textarea);
     newRow.append(saveButton);
 
+    //callig the function
 
 setHourResponse();
 renderSaveButton();

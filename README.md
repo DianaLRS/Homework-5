@@ -16,7 +16,7 @@ when when schedule hour = future, the row is a lightslategray color +
 
 The user can save the text by clicking the responsive save button+ 
 
-The text will remain on screen even if page is refreshed. 
+The text will remain on screen even if page is refreshed. +
 
 
 
